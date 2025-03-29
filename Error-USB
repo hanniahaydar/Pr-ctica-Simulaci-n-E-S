@@ -1,0 +1,28 @@
+class USB extends Dispositivo {
+  constructor() {
+    super();
+    this.enUso = false; 
+  }
+
+  abrirArchivo() {
+    this.enUso = true; 
+    console.log("Archivo abierto. USB ahora está en uso.");
+  }
+
+  cerrarArchivo() {
+    this.enUso = false; // Marca el USB como no en uso al cerrar el archivo
+    console.log("Archivo cerrado. USB ya no está en uso.");
+  }
+
+  expulsar() {
+    // Verificar si el USB está en uso
+    if (this.enUso) {
+      alert("No se puede expulsar el USB. Asegúrate de cerrar todos los archivos abiertos antes de intentar expulsar.");
+      return; // Salir del método si está en uso
+    }
+
+    // Lógica para expulsar el USB
+    console.log("USB expulsado correctamente.");
+    this.actualizarUI();
+  }
+}
